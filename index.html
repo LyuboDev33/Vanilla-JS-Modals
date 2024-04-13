@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <title>Modals</title>
+</head>
+
+<body>
+
+
+  <div class="btnContainer">
+
+    <button class="btns">Top Left Modal</button>
+    <button class="btns">Bottom Left Modal</button>
+    <button class="btns">Bottom Right Modal</button>
+    <button class="btns">Top Right Modal</button>
+
+
+  </div>
+
+  <!-- Modal with Background-->
+  <div class="background">
+    <div class="modal">
+      <i id="closeX" class="fa-solid fa-x"></i>
+      <p class="insideText"></p>
+    </div>
+  </div>
+  <!-- Modal end -->
+
+
+
+  <script>
+
+    let btns = document.querySelectorAll('.btns');
+    let btnsContainer = document.querySelector('.btnContainer');
+    let background = document.querySelector('.background');
+    let closeX = document.getElementById('closeX');
+    let insideText = document.querySelector('.insideText');
+    let modal = document.querySelector('.modal');
+
+
+
+
+
+    btns.forEach(button => {
+
+      button.addEventListener('click', function () {
+
+        background.style.display = "flex";
+        btnsContainer.style.display = "none";
+
+        insideText.innerHTML = button.innerHTML;
+
+        switch (button.innerHTML) {
+          case "Top Left Modal":
+          modal.style.top = "10px";
+          modal.style.left = "10px";
+
+          closeX.style.bottom = "15px";
+          closeX.style.right = "20px";
+
+            break;
+
+          case "Bottom Left Modal":
+          modal.style.bottom = "10px";
+          modal.style.left = "10px";
+
+          closeX.style.top = "15px";
+          closeX.style.right = "20px";
+
+          break;
+
+          case "Bottom Right Modal":  
+          modal.style.bottom = "10px";
+          modal.style.right = "10px";
+
+          closeX.style.top = "15px";
+          closeX.style.left = "20px";
+
+          break;
+
+          case "Top Right Modal":  
+          modal.style.top = "10px";
+          modal.style.right = "10px";
+
+          closeX.style.bottom = "15px";
+          closeX.style.left = "20px";
+
+
+          break;
+
+          default:
+            break;
+        }
+
+
+      });
+
+
+    });
+
+
+
+    function closeWindow() {
+
+      closeX.addEventListener('click', function () {
+        background.style.display = "none";
+        btnsContainer.style.display = "flex";
+
+        modal.style.removeProperty('top');
+        modal.style.removeProperty('bottom');
+
+        modal.style.removeProperty('left');
+        modal.style.removeProperty('right');
+
+        closeX.style.removeProperty('top');
+        closeX.style.removeProperty('bottom');
+        closeX.style.removeProperty('left');
+        closeX.style.removeProperty('right'); 
+
+
+
+
+
+      })
+
+    } closeWindow()
+
+
+
+  </script>
+
+
+</body>
+
+</html>
